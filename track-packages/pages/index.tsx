@@ -2,6 +2,7 @@ import Head from "next/head";
 import * as React from "react";
 import { useSession } from "next-auth/client";
 import GithubLoginButton from "../components/GithubLoginButton";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 import styles from "../styles/Home.module.css";
 import Footer from "../components/Footer";
 import { Logo } from "../components/Layout";
@@ -11,7 +12,7 @@ export default function Home() {
 
 	React.useEffect(() => {
 		if (!loading && session) {
-			window.location.replace("/dashboard");
+			// window.location.replace("/dashboard");
 		}
 	}, [session, loading]);
 
@@ -40,6 +41,7 @@ export default function Home() {
 					Holder styr på alle dine pågående og mottatte pakker!
 				</p>
 				<GithubLoginButton />
+				<GoogleLoginButton />
 			</main>
 
 			<Footer />
