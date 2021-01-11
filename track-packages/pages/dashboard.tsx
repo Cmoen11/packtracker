@@ -1,15 +1,13 @@
 import * as React from "react";
-import { useRouter } from "next/router";
-import { useSession, signOut, getSession } from "next-auth/client";
+import { useSession, getSession } from "next-auth/client";
 import Layout from "../components/Layout";
 
 const DashBoard: React.FC = () => {
 	const [session, loading] = useSession();
-	const router = useRouter();
 
 	React.useEffect(() => {
 		if (!loading && !session) {
-			router.push("/");
+			window.location.replace("/");
 		}
 	}, [session, loading]);
 
@@ -21,7 +19,7 @@ const DashBoard: React.FC = () => {
 
 	return (
 		<Layout>
-			<button onClick={signOut}>Logg ut</button>
+			<p>content</p>
 		</Layout>
 	);
 };
